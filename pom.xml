@@ -204,7 +204,7 @@
             <properties>
                 <jkube.environment>prod</jkube.environment>
                 <jkube.build.strategy>jib</jkube.build.strategy>
-                <jkube.generator.name>quay.io/qiotproject/quarkus-quickstart-getting-started:${project.version}-jvm</jkube.generator.name>
+                <jkube.generator.name>quay.io/qiotproject/edge-machinery:${project.version}-jvm</jkube.generator.name>
             </properties>
         </profile>
         <profile>
