@@ -200,6 +200,14 @@
             </properties>
         </profile>
         <profile>
+            <id>prodjvm</id>
+            <properties>
+                <jkube.environment>prod</jkube.environment>
+                <jkube.build.strategy>jib</jkube.build.strategy>
+                <jkube.generator.name>quay.io/qiotmanufacturing/edge-machinery:${project.version}-jvm</jkube.generator.name>
+            </properties>
+        </profile>
+        <profile>
             <id>native</id>
             <activation>
                 <property>
