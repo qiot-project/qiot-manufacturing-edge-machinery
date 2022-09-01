@@ -1,7 +1,7 @@
 /**
  * 
  */
-package io.qiot.manufacturing.edge.machinery.rest;
+package io.qiot.manufacturing.edge.machinery.rest.counter;
 
 import java.util.Map;
 import java.util.UUID;

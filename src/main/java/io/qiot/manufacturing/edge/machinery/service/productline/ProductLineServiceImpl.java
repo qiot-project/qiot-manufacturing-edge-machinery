@@ -13,15 +13,15 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.qiot.manufacturing.all.commons.domain.cdi.BootstrapCompletedEventDTO;
+import org.slf4j.Logger;
+
 import io.qiot.manufacturing.all.commons.domain.productline.ProductLineDTO;
 import io.qiot.manufacturing.edge.machinery.domain.event.productline.ProductLineChangedEventDTO;
-import io.qiot.manufacturing.edge.machinery.service.machinery.MachineryService;
+import io.qiot.manufacturing.edge.machinery.rest.productline.LatestProductLineRequestClient;
+//import io.qiot.manufacturing.edge.machinery.service.machinery.MachineryService;
 import io.quarkus.runtime.annotations.RegisterForReflection;
 
 /**
@@ -48,22 +48,11 @@ class ProductLineServiceImpl implements ProductLineService {
     @Inject
     ObjectMapper MAPPER;
 
-    @Inject
-    MachineryService machineryService;
-
-    @Inject
-    LatestProductLineRequestMessageProducer latestProductLineRequestMessageProducer;
-
     ProductLineServiceImpl() {
         productLines = new TreeMap<UUID, ProductLineDTO>();
         this.readWriteLock = new ReentrantReadWriteLock();
         this.readLock = readWriteLock.readLock();
         this.writeLock = readWriteLock.writeLock();
-    }
-
-    void onStart(@Observes BootstrapCompletedEventDTO event) {
-        latestProductLineRequestMessageProducer
-                .requestLatestProductLine(machineryService.getMachineryId());
     }
 
     void newProductLine(@Observes ProductLineChangedEventDTO event)

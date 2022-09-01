@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.qiot.manufacturing.edge</groupId>
     <artifactId>machinery-service</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <parent>
         <groupId>io.qiot.manufacturing</groupId>
         <artifactId>parent</artifactId>
@@ -111,24 +111,19 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-openapi</artifactId>
+            <artifactId>quarkus-swagger-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-swagger-ui</artifactId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-client-jackson</artifactId>
         </dependency>
-        <!-- JMS -->
-<!--         <dependency> -->
-<!--         <groupId>org.apache.activemq</groupId> -->
-<!--         <artifactId>artemis-jms-client</artifactId> -->
-<!--         </dependency> -->
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-artemis-jms</artifactId>
+            <artifactId>quarkus-rest-client-mutiny</artifactId>
         </dependency>
         <!-- SCHEDULER -->
         <dependency>
